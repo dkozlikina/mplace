@@ -1,0 +1,8 @@
+User#confirmation
+
+<%= @greeting %>, find me in app/views/user_mailer/confirmation.text.erb
+
+<!-- app/views/user_mailer/confirmation.text.erb -->
+Confirmation Instructions
+
+<%= edit_confirmation_url(@confirmation_token) %>
