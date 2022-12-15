@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   root "static_pages#home"
+
+  get "/products", to: "products#index"
+  get "/product/:id", to: "products#show"
+
+
+
+
   post "sign_up", to: "users#create"
   get "sign_up", to: "users#new"
 
@@ -10,11 +17,6 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
   get "login", to: "sessions#new"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
 
   resources :passwords, only: [:create, :edit, :new, :update], param: :password_reset_token
 

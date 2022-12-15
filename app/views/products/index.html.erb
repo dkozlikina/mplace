@@ -1,0 +1,17 @@
+<h2> Каталог продуктов </h2>
+
+<% @products.each do |product| %>
+
+  <!-- <a href="lorem.html"><img src="images/girl.png"
+                            width="189" height="255" alt="lorem"></a>
+  -->
+
+  <span class="container">
+    <img src= <%= product.picture %> width="200" >
+    <div class="shadowbox"> <%= link_to product.name, "/product/#{product.id}" %>  <%= product.price %> </div>
+  </span>
+
+
+
+
+<% end %>
