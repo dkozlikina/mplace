@@ -2,21 +2,13 @@
 
 <% @products.each do |product| %>
 
-  <!-- <a href="lorem.html"><img src="images/girl.png"
-                            width="189" height="255" alt="lorem"></a>
-  -->
-
   <div class="product-item">
     <img src= <%= product.picture %> width="200" >
     <div class="product-list">
-      <h3><%= link_to product.name %></h3>
+      <h3><%= link_to product.name, "/product/#{product.id}" %></h3>
       <span class="price">₽ <%= product.price %> </span>
       <a href="" class="button">В корзину</a>
     </div>
   </div>
-
-
-
-
 
 <% end %>
