@@ -1,9 +1,16 @@
+<p> <%= link_to "Обратно в Каталог продуктов", "/products" %></p>
+
 <h1>Карточка продукта <% @product %></h1>
 
-<%= image_tag(@product.picture, width: 200) %>
+<p align="center">  <%= image_tag(@product.picture, :align=> "middle", width: 300 ) %> </p>
 
-<p> <%= @product.name  %> </p>
-<p> <%= @product.price %> </p>
-<p> <%= @product.info  %> </p>
+<p align="center"> <%= @product.name  %> </p>
+<p align="center"> ₽ <%= @product.price %> </p>
 
-<p> <%= link_to "Обратно в Каталог продуктов", "/products" %></p>
+<center> <a href="" class="button">В корзину</a> </center>
+
+<center> <h3> Описание: </h3></center>
+
+<p align="center"> <%= @product.info  %> </p>
+
+

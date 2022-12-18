@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  has_one :cart
+
   CONFIRMATION_TOKEN_EXPIRATION = 10.minutes
   PASSWORD_RESET_TOKEN_EXPIRATION = 10.minutes
 
