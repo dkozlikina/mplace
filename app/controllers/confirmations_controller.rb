@@ -19,6 +19,7 @@ class ConfirmationsController < ApplicationController
       if @user.confirm!
         login @user
         redirect_to root_path, notice: "Your account has been confirmed."
+        @user.create_cart()
       else
         # возможно это не надо было комментировать -- Step 8
         #redirect_to new_confirmation_path, alert: "Invalid token."

@@ -1,0 +1,17 @@
+<h2> Ваша Корзина </h2>
+
+<table>
+  <tr>
+    <% @cart.each do |c| %>
+
+      <td> <img src= <%= Product.find_by(id: c.product_id).picture %> width="100" > </td>
+
+      <td> <%= Product.find_by(id: c.product_id).name %> </td>
+      <td> <%= c.price %> </td>
+      <td> <%= c.amount %> </td>
+
+    <% end %>
+
+  </tr>
+</table>
+

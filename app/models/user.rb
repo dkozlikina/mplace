@@ -1,8 +1,9 @@
 class User < ApplicationRecord
 
-  has_one :cart
+  has_many :cart
 
   has_many :active_sessions, dependent: :destroy
+
 
   CONFIRMATION_TOKEN_EXPIRATION = 10.minutes
   PASSWORD_RESET_TOKEN_EXPIRATION = 10.minutes
@@ -35,7 +36,6 @@ class User < ApplicationRecord
       email
     end
   end
-
 
   def confirmed?
     confirmed_at.present?
@@ -74,11 +74,7 @@ class User < ApplicationRecord
 
   MAILER_FROM_EMAIL = "no-reply@example.com"
 
-  private
 
-  def downcase_email
-    self.email = email.downcase
-  end
 
   def send_confirmation_email!
     confirmation_token = generate_confirmation_token
@@ -95,6 +91,11 @@ class User < ApplicationRecord
     UserMailer.password_reset(self, password_reset_token).deliver_now
   end
 
+  private
+
+  def downcase_email
+    self.email = email.downcase
+  end
   # step 11
   def downcase_unconfirmed_email
     return if unconfirmed_email.nil?

@@ -1,11 +1,85 @@
 <p> <%= link_to "Обратно в Каталог продуктов", "/products" %></p>
 
+<p> <%= link_to "Корзина", "/cart" %></p>
+
 <h1>Карточка продукта <% @product %></h1>
 
 <p align="center">  <%= image_tag(@product.picture, :align=> "middle", width: 300 ) %> </p>
 
 <p align="center"> <%= @product.name  %> </p>
 <p align="center"> ₽ <%= @product.price %> </p>
+
+<script>
+
+    document.querySelectorAll('.count .plus').forEach(item => {
+
+        item.addEventListener('click', function () {
+
+            ++item.parentElement.querySelector('input').value;
+
+            if (item.parentElement.querySelector('input').value > 1) {
+
+                item.parentElement.querySelector('.minus').classList.remove('min');
+
+            }
+
+        });
+
+    });
+
+    document.querySelectorAll('.count .minus').forEach(item => {
+
+        item.addEventListener('click', function () {
+
+            --item.parentElement.querySelector('input').value;
+
+            if (item.parentElement.querySelector('input').value < 2) {
+
+                item.parentElement.querySelector('input').value = 1
+
+                item.classList.add('min');
+
+            }
+
+        });
+
+    });
+
+</script>
+
+<style>
+    /* Button +- */
+    .count {
+        display: flex;
+    }
+
+    .count .change {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        font-weight: 600;
+        color: #fff;
+        background-color: #35e201;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .count input {
+        max-width: 55px;
+        text-align: center;
+        font-weight: 700;
+        background-color: #fff;
+        border: none;
+        border-radius: 3px;
+        margin: 0 5px;
+    }
+
+    .count .minus.min {
+        background-color: #989797;
+    }
+</style>
 
 <center>
   <span class="change minus min">
@@ -16,6 +90,7 @@
                     <span>+</span>
                 </span>
 </center>
+
 <p> </p>
 <center> <a href="" class="button">В корзину</a> </center>
 

@@ -1,18 +1,14 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
+  get 'cart/show'
+  root "products#index"
 
   get "/products", to: "products#index"
   get "/product/:id", to: "products#show"
 
-
-
-
   post "sign_up", to: "users#create"
   get "sign_up", to: "users#new"
 
-
   resources :confirmations, only: [:create, :edit, :new], param: :confirmation_token
-
 
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
@@ -29,5 +25,7 @@ Rails.application.routes.draw do
       delete "destroy_all"
     end
   end
+
+  get "/cart", to: "cart#show"
 
 end

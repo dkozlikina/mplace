@@ -1,0 +1,9 @@
+<h2> Ваша Корзина </h2>
+
+<% @items.each do |item| %>
+
+  <div>
+    <p> <%= item.product_id item.price item.amount %></p>
+  </div>
+
+<% end %>
