@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_18_171038) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_22_232850) do
+  create_table "active_sessions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "user_agent"
+    t.string "ip_address"
+    t.string "remember_token", null: false
+    t.index ["remember_token"], name: "index_active_sessions_on_remember_token", unique: true
+    t.index ["user_id"], name: "index_active_sessions_on_user_id"
+  end
+
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "cart_id"
+    t.float "price"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_products_on_cart_id"
+    t.index ["product_id"], name: "index_cart_products_on_product_id"
+  end
+
   create_table "carts", force: :cascade do |t|
     t.integer "product_id"
     t.float "price"
@@ -38,4 +60,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_18_171038) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "active_sessions", "users", on_delete: :cascade
 end
