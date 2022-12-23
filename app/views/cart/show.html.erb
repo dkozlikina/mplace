@@ -1,17 +1,23 @@
+<p> <%= link_to "Обратно в Каталог продуктов", "/products" %></p>
+
 <h2> Ваша Корзина </h2>
 
-<table>
-  <tr>
-    <% @cart.each do |c| %>
+<center>
+  <table border="1" width="700">
+    <tr>
+      <center>
+        <% @cart.each do |c| %>
 
-      <td> <img src= <%= Product.find_by(id: c.product_id).picture %> width="100" > </td>
+          <td align="center"> <img src= <%= Product.find_by(id: c.product_id).picture %> width="100" > </td>
 
-      <td> <%= Product.find_by(id: c.product_id).name %> </td>
-      <td> <%= c.price %> </td>
-      <td> <%= c.amount %> </td>
+          <td align="center"> <%= Product.find_by(id: c.product_id).name %> </td>
+          <td align="center"> <%= c.price %> </td>
+          <td align="center"> <%= c.amount %> </td>
 
-    <% end %>
+        <% end %>
+      </center>
+    </tr>
+  </table>
+</center>
 
-  </tr>
-</table>
 

@@ -1,8 +1,10 @@
 class CartController < ApplicationController
   def show
-    #current_user
     @cart = current_user.cart
+  end
 
-    #@cart = User.find_by(id: Current.user.id).cart
+  def add
+
+    User.cart.create(product_id: params[:id], price: )
   end
 end

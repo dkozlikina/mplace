@@ -8,7 +8,10 @@
     <div class="product-list">
       <h3><%= link_to product.name, "/product/#{product.id}" %></h3>
       <span class="price">₽ <%= product.price %> </span>
-      <a href="" class="button">В корзину</a>
+
+      <%= button_to 'В корзину', "/add/#{product.id}" ,  method: :post %>
+
+      <!--<a href = ""  class="button">В корзину</a> -->
     </div>
   </div>
 
