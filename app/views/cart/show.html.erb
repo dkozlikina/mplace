@@ -4,20 +4,27 @@
 
 <center>
   <table border="1" width="700">
-    <tr>
+
       <center>
         <% @cart.each do |c| %>
+          <tr>
+            <td align="center"> <img src= <%= Product.find_by(id: c.product_id).picture %> width="100" > </td>
 
-          <td align="center"> <img src= <%= Product.find_by(id: c.product_id).picture %> width="100" > </td>
+            <td align="center"> <%= link_to Product.find_by(id: c.product_id).name, "/product/#{Product.find_by(id: c.product_id).id}" %> </td>
 
-          <td align="center"> <%= Product.find_by(id: c.product_id).name %> </td>
-          <td align="center"> <%= c.price %> </td>
-          <td align="center"> <%= c.amount %> </td>
+            <td align="center"> <%= c.price %> </td>
+            <td align="center"> <%= c.amount %> </td>
+            <td align="center"> <%= button_to 'Удалить', "/delete/#{Product.find_by(id: c.product_id).id}" ,  method: :post %> </td>
 
+          </tr>
         <% end %>
       </center>
-    </tr>
+
   </table>
+
+  <%= link_to "Оформить заказ", "" %>
 </center>
+
+
 
 

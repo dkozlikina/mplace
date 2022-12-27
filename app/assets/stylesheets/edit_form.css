@@ -1,0 +1,11 @@
+div {
+    float: left; /*Задаем обтекание*/
+    font-size: 40px;
+    background: dodgerblue;
+    color: white;
+    width: 300px; /*Фиксируем ширину блока*/
+    margin-top: 60px;
+    margin-right: 10px;
+    text-align: center; /*Центрируем текст по горизонтали*/
+
+}

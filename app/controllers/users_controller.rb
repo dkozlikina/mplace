@@ -52,11 +52,6 @@ class UsersController < ApplicationController
 
   private
 
-  # step 12 -- возможно надо было оставить
-  """def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
-  end"""
-
   def create_user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
