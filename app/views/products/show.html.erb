@@ -2,19 +2,51 @@
 
 <p> <%= link_to "Корзина", "/cart" %></p>
 
-<h1>Карточка продукта <% @product %></h1>
+<style>
+    .wrapper {
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+    #left {
+        margin-left: 10%;
+        float: left;
+        width: 700px;
+        background: #fff;
+    }
+    #content {
+        margin-left: 20px;
+        overflow: hidden;
+        background: #eee;
+  a{
+      border: 1px solid black;
+  }
+</style>
 
-<p align="center">  <%= image_tag(@product.picture, :align=> "middle", width: 300 ) %> </p>
+<h1 align="center">Карточка продукта <% @product %></h1>
 
-<p align="center"> <%= @product.name  %> </p>
-<p align="center"> ₽ <%= @product.price %> </p>
 
-<p> </p>
 
-<center>  <%= button_to 'В корзину', "/add/#{@product.id}" ,  method: :post %> </center>
+  <p id="left">  <%= image_tag(@product.picture, width: 500, align: "middle") %>  </p>
+  <p id="content">
+    <p>   <%= @product.name  %>   </p>
+    <p> ₽ <%= @product.price %> </p>
 
-<center> <h3> Описание: </h3></center>
+    <p> </p>
 
-<p align="center"> <%= @product.info  %> </p>
+    <%= button_to 'В корзину', "/add/#{@product.id}" ,  method: :post %>
+    <p> </p>
+
+    <h3> Описание: </h3>
+
+    <p> <%= @product.info  %> </p>
+  <p/>
+
+
+
+
+
+
+
+
 
 
