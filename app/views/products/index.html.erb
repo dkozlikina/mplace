@@ -1,5 +1,10 @@
+<p> Вы вошли под именем <%= current_user.email %></p>
+<p> <%= link_to "Выход/Активные сессии", "/logout" %></p>
+
 <h2> Каталог продуктов </h2>
 <p> <%= link_to "Корзина", "/cart" %></p>
+
+
 
 <% @products.each do |product| %>
 

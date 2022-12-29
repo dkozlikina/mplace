@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   get 'cart/show'
   root "products#index"
+  #root "users#new"
 
   get "/products", to: "products#index"
   get "/product/:id", to: "products#show"
@@ -30,4 +34,5 @@ Rails.application.routes.draw do
   post "/add/:id", to: "cart#add"
   post "/delete/:id", to: "cart#delete"
 
+  #get "/logout", to: "active_sessions"
 end
